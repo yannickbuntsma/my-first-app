@@ -1,3 +1,36 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<label>Server Name</label>
+<!-- <input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+> -->
+<!-- $event is de data die de event data meegeeft vanuit de .ts file -->
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="serverName"
+>
+<!-- <p>{{ serverName }}</p> -->
+
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+  >Add Server</button>
+  <!-- Listen to click, run function or code -->
+<!-- <p [innerText]="allowNewServer"></p> -->
+<p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
+
+
+<input
+  type="text"
+  [(ngModel)]="username"
+  >
+<button
+  class="btn btn-primary"
+  (click)="resetName()"
+  [disabled]="onUsernameOK()"
+>Reset</button>
+  <p>Your username is <strong>{{ username }}</strong></p>
